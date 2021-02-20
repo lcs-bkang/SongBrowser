@@ -17,13 +17,26 @@ struct ContentView: View {
     // MARK: Computed Properties
     
     var body: some View {
-
+        
         VStack {
             
             SearchBarView(text: $searchText)
             
-            // Push the search bar to the top
-            Spacer()
+            // Show a prompt when no search text is given.
+            if searchText.isEmpty {
+                
+                Spacer()
+                
+                Text("Please enter an artist name")
+                    .font(.title)
+                    .foregroundColor(.secondary)
+                
+                Spacer()
+            } else {
+                
+                // Push the search bar to the top
+                Spacer()
+            }
         }
     }
 }
