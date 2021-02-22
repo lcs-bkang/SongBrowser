@@ -44,14 +44,8 @@ struct ContentView: View {
                 // Keypath of \.trackId tells the List view what property to use
                 // To uniquely identify each song
                 List(songs, id: \.trackId) { currentSong in
-                    
-                    VStack(alignment: .leading) {
-                        
-                        Text(currentSong.trackName)
-                            .font(.headline)
-                        Text(currentSong.artistName)
-                            .font(.caption)
-                    }
+                    SimpleListItemView(title: currentSong.trackName,
+                                       caption: currentSong.artistName)
                 }
                 
             }
